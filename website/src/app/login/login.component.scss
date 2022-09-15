@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    mat-card {
+        width: 500px;
+        mat-card-footer {
+            margin: 0;
+        }
+    }
+    mat-form-field {
+        width: 100%;
+    }
+}

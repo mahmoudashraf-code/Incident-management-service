@@ -1,0 +1,15 @@
+<div class="bashirPage">
+    <mat-toolbar>
+        <mat-icon style="margin: 0 7px;">{{data.icon}}</mat-icon>
+        <span>{{data.name}}</span>
+        <span class="example-spacer"></span>
+        <ng-container *ngFor="let button of buttons">
+            <button mat-button (click)="button.action()" *ngIf="button">
+                <mat-icon>{{button.icon}}</mat-icon>
+            </button>
+        </ng-container>
+    </mat-toolbar>
+    <div>
+        <ng-content select="[body]"></ng-content>
+    </div>
+</div>

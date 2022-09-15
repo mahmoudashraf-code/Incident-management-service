@@ -1,0 +1,23 @@
+<app-page [data]="{icon:'person',name:'Account'}" [buttons]="buttons">
+  <div body>
+    <div class="imgData">
+      <div>
+        <img src="/favicon.ico" class="avatar" draggable="false">
+      </div>
+    </div>
+    <form [formGroup]="userData">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>password</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+    </form>
+  </div>
+</app-page>

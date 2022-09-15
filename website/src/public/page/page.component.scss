@@ -1,0 +1,22 @@
+.bashirPage {
+    min-height: calc(100%);
+    background-color: white;
+    width: 900px;
+    margin: 0 auto;
+    .example-spacer {
+        flex: 1 1 auto;
+    }
+    mat-toolbar {
+        height: 40px;
+        padding: 0;
+        z-index: 1000;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .bashirPage {
+        width: auto;
+    }
+}
+::-webkit-scrollbar-thumb {
+    background-color: black;
+}

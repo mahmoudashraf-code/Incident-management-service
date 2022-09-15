@@ -1,0 +1,30 @@
+<app-page [data]="{icon:'add_chart',name:userId}" [buttons]="buttons">
+  <div body>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput readonly [(ngModel)]="data.title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Caller Name</mat-label>
+        <input matInput readonly [(ngModel)]="data.callerName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Caller Phone</mat-label>
+        <input matInput readonly [(ngModel)]="data.callerPhone">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>category</mat-label>
+        <input matInput readonly [(ngModel)]="data.category">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>priorty</mat-label>
+        <input matInput readonly [(ngModel)]="data.priorty">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>description</mat-label>
+        <textarea matInput readonly rows="20" [(ngModel)]="data.description"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</app-page>

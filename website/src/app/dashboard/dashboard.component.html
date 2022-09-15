@@ -1,0 +1,96 @@
+<div class="app">
+    <mat-toolbar>
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+        <span style="margin: 0 7px;">Incident Management Service</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav="matSidenav">
+            <img class="avatar" draggable="false" src="/favicon.ico" />
+            <h4 class="name">{{app.user?.name}}</h4>
+            <p class="designation">{{app.user?.email}}</p>
+            <mat-divider></mat-divider>
+
+            <ng-container *ngIf="app.user?.role==0;else elseBlock">
+                <button mat-button class="menu-button" routerLink="incident/edited/addNew"
+                    routerLinkActive="mat-accent">
+                    <mat-icon>add_chart</mat-icon>
+                    <span>Create Ticket</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="incident/list/all" routerLinkActive="mat-accent">
+                    <mat-icon>analytics</mat-icon>
+                    <span>Incidentes</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="incident/list/done" routerLinkActive="mat-accent">
+                    <mat-icon>admin_panel_settings</mat-icon>
+                    <span>Done Incidentes</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="incident/list/high" routerLinkActive="mat-accent">
+                    <mat-icon>verified</mat-icon>
+                    <span>High Incidentes</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="incident/list/Wating" routerLinkActive="mat-accent">
+                    <mat-icon>connect_without_contact</mat-icon>
+                    <span>Wating Incidentes</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-button class="menu-button" routerLink="users" routerLinkActive="mat-accent">
+                    <mat-icon>people</mat-icon>
+                    <span>Users</span>
+                </button>
+            </ng-container>
+
+            <ng-template #elseBlock>
+                <button mat-button class="menu-button" routerLink="user" routerLinkActive="mat-accent">
+                    <mat-icon>analytics</mat-icon>
+                    <span>Incidentes</span>
+                </button>
+            </ng-template>
+
+            <mat-divider></mat-divider>
+            <button mat-button class="menu-button" routerLink="account" routerLinkActive="mat-accent">
+                <mat-icon>person</mat-icon>
+                <span>Account</span>
+            </button>
+            <button mat-button class="menu-button" routerLink="setting" routerLinkActive="mat-accent"
+                *ngIf="app.user?.role==0">
+                <mat-icon>settings</mat-icon>
+                <span>Setting</span>
+            </button>
+            <div style="height: 100px;"></div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <header>
+                <mat-toolbar style="height: 40px;">
+                    <span style="display: contents;">
+                        <a mat-button (click)="tabs.init()">
+                            <mat-icon>home</mat-icon>
+                        </a>
+                        <mat-icon class="mat-icon-rtl-mirror">chevron_right</mat-icon>
+                    </span>
+                    <span *ngFor="let p of tabs.tabs;index as i" style="display: contents;">
+                        <a mat-button (click)="tabs.selectDir(i)">
+                            {{p}}
+                        </a>
+                        <mat-icon class="mat-icon-rtl-mirror">chevron_right</mat-icon>
+                    </span>
+                </mat-toolbar>
+                <mat-progress-bar class="loading" mode="indeterminate" color="primary" *ngIf="app._loading">
+                </mat-progress-bar>
+            </header>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

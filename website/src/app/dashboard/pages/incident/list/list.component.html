@@ -1,0 +1,82 @@
+<app-page [data]="{icon:selectPage.icon,name:selectPage.name}" [buttons]="buttons">
+    <div body>
+        <mat-form-field appearance="outline">
+            <mat-label>Search...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <app-filter matSuffix (done)="getData($event)"></app-filter>
+        </mat-form-field>
+
+        <table mat-table matSort [dataSource]="users">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="callerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Caller Name</th>
+                <td mat-cell *matCellDef="let element">{{element.callerName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>title</th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="category">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>category</th>
+                <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="priorty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>priorty</th>
+                <td mat-cell *matCellDef="let element"> {{element.priorty}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>status</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-chip-list>
+                        <ng-container [ngSwitch]="element.status">
+                            <ng-container *ngSwitchCase="0">
+                                <mat-chip color="warn" selected>Waiting</mat-chip>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="1">
+                                <mat-chip color="accent" selected>Assign</mat-chip>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="2">
+                                <mat-chip color="primary" selected>Finish</mat-chip>
+                            </ng-container>
+                        </ng-container>
+                    </mat-chip-list>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef style="width: 50px;">Delete</th>
+                <td mat-cell *matCellDef="let element;">
+                    <button mat-icon-button color="warn" (click)="deleteItem(element._id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+
+            <ng-container matColumnDef="update">
+                <th mat-header-cell *matHeaderCellDef style="width: 50px;">Update</th>
+                <td mat-cell *matCellDef="let element;let i = index">
+                    <button mat-icon-button color="primary" (click)="editedItem(element)">
+                        <mat-icon>drive_file_rename_outline</mat-icon>
+                    </button>
+                </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20,50]" showFirstLastButtons [disabled]="users.data.length<5"
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</app-page>

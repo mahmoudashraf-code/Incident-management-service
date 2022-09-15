@@ -1,0 +1,42 @@
+<app-page [data]="{icon:'settings',name:'Setting'}" [buttons]="buttons">
+  <div body class="container">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>category</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline">
+          <mat-label>category</mat-label>
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let keyword of setting.category;index as i" (removed)="setting.category.splice(i,1)">
+              {{keyword}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event,'category')">
+          </mat-chip-list>
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>priorty</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field class="example-chip-list" appearance="outline">
+          <mat-label>priorty</mat-label>
+          <mat-chip-list #chipList2>
+            <mat-chip *ngFor="let keyword of setting.priorty;index as i" (removed)="setting.priorty.splice(i,1)">
+              {{keyword}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input [matChipInputFor]="chipList2" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event,'priorty')">
+          </mat-chip-list>
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</app-page>

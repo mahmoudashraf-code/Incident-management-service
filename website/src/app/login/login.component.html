@@ -1,0 +1,23 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginData">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="someone@example.com" required formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input matInput type="password" placeholder="****" required
+                        formControlName="password">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-footer align="end">
+            <button mat-raised-button color="primary" (click)="logIn()">Sign In</button>
+        </mat-card-footer>
+    </mat-card>
+</div>

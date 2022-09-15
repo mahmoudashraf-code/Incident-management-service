@@ -1,0 +1,52 @@
+<div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>filter_alt</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();">
+            <mat-label>assign To</mat-label>
+            <mat-select [(ngModel)]="filter.assignTo">
+                <mat-option *ngFor="let user of users" [value]="user._id">
+                    {{user.name}} | {{user.email}}
+                </mat-option>
+            </mat-select>
+            <button mat-button *ngIf="filter.assignTo" matSuffix mat-icon-button (click)="filter.assignTo=undefined">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();">
+            <mat-label>category</mat-label>
+            <mat-select [(ngModel)]="filter.category">
+                <mat-option *ngFor="let cat of setting.category" [value]="cat">
+                    {{cat}}
+                </mat-option>
+            </mat-select>
+            <button mat-button *ngIf="filter.category" matSuffix mat-icon-button (click)="filter.category=undefined">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();">
+            <mat-label>priorty</mat-label>
+            <mat-select [(ngModel)]="filter.priorty">
+                <mat-option *ngFor="let pr of setting.priorty" [value]="pr">
+                    {{pr}}
+                </mat-option>
+            </mat-select>
+            <button mat-button *ngIf="filter.priorty" matSuffix mat-icon-button (click)="filter.priorty=undefined">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();">
+            <mat-label>Staus</mat-label>
+            <mat-select [(ngModel)]="filter.status">
+                <mat-option *ngFor="let s of status" [value]="s.id">
+                    {{s.name}}
+                </mat-option>
+            </mat-select>
+            <button mat-button *ngIf="filter.status" matSuffix mat-icon-button (click)="filter.status=undefined">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-raised-button (click)="done.emit(filter)">Done</button>
+    </mat-menu>
+</div>

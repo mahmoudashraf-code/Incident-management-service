@@ -1,0 +1,66 @@
+<app-page [data]="{icon:'add_chart',name:userId}" [buttons]="buttons">
+  <div body>
+    <form [formGroup]="userData">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Info
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="outline">
+            <mat-label>assign To</mat-label>
+            <mat-select formControlName="assignTo">
+              <mat-option *ngFor="let user of users" [value]="user._id">
+                {{user.name}} | {{user.email}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" [readonly]="status==2">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Caller Name</mat-label>
+            <input matInput formControlName="callerName" [readonly]="status==2">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Caller Phone</mat-label>
+            <input matInput formControlName="callerPhone" [readonly]="status==2">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let cat of setting.category" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>priorty</mat-label>
+            <mat-select formControlName="priorty">
+              <mat-option *ngFor="let pr of setting.priorty" [value]="pr">
+                {{pr}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>description</mat-label>
+            <textarea matInput [readonly]="status==2" rows="20" formControlName="description"></textarea>
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel [disabled]="!(status==2)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Resolve
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="outline">
+            <mat-label>Resolve</mat-label>
+            <textarea matInput readonly rows="20" formControlName="replay"></textarea>
+          </mat-form-field>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </form>
+  </div>
+</app-page>
