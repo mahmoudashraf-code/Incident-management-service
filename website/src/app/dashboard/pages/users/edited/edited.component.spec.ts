@@ -1,16 +1,19 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
 import { EditedComponent } from './edited.component';
 
-describe('EditedComponent', () => {
+describe('EditedComponent ==> users', () => {
   let component: EditedComponent;
   let fixture: ComponentFixture<EditedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditedComponent ]
+      declarations: [EditedComponent],
+      imports: [HttpClientTestingModule, MatDialogModule, RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -5,9 +5,11 @@
 - [Objectives](#link2)
 - [Examples Of incidents](#link3)
 - [How to Create a Ticket](#link4)
-- [How to Start server](#link5)
+- [How to Start server in production](#link5)
+- [Development system](#link9)
 - [The incident management process](#link6)
 - [Refrence](#link7)
+- [What is the next?](#link8)
 
 
 ## <a name="link1"></a>What is an incident?
@@ -43,9 +45,18 @@ The incident postmortem is done after the incident to determine the root cause a
 3. Once you are done entering the required informatiom, save the ticket by clicking on the "Save" button.
 
 
-## <a name="link5"></a>How to Start server
+## <a name="link5"></a>How to Start system in production
+You can use one of this to start system
+- [using docker you can start application](#linkdocker)
+- go to server folder then run  `npm run  start:prod`
+
+## <a name="link9"></a>Development system
 1. flow install instruction in server folder.
 2. flow install instruction in website folder.
+
+## <a name="linkdocker"></a>start application using docker
+1. run `docker compose up` then open website on http://127.0.0.1:3000
+
 
 ## <a name="link6"></a>The incident management process
 1. Incident logging.
@@ -54,6 +65,13 @@ The incident postmortem is done after the incident to determine the root cause a
 4. Task creation and management.
 5. Task resolve
 6. Incident closure.
+
+## <a name="link8"></a>What is the next?
+1. account for end user.
+2. attack files to form.
+3. add voice, zoom meetings for end users.
+4. replay message between admin and employee in company as message chat.
+5. attach employee to groups and assign problem to anyone in group who has no work to do. 
 
 
 ## <a name="link7"></a>Refrence

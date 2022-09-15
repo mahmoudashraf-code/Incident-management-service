@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+
+  incident-management:
+    build: server/.
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_URL: mongodb://mongo:27017/db
+
+volumes:
+  mongo-data: {}

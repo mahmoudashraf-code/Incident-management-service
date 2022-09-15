@@ -31,5 +31,11 @@ export class Incident {
 
     @Prop({ required: true })
     callerName: string;
+
+    @Prop({ required: true })
+    dateCreate: string;
+
+    @Prop()
+    dateUpdate: string;
 }
 export const IncidentSchema = SchemaFactory.createForClass(Incident);

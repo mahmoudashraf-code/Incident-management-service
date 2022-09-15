@@ -29,6 +29,7 @@ export class IncidentController {
 
     @Post()
     async addNew(@Body("data") data: iIncident, @Res() res: Response) {
+        data.dateCreate = new Date().toDateString();
         this.checkStatus(data);
         await this.IncidebtModel.create(data);
         res.json(true);
@@ -36,6 +37,7 @@ export class IncidentController {
 
     @Put(":id")
     async update(@Body("data") data: iIncident, @Res() res: Response, @Param('id') id: string) {
+        data.dateUpdate = new Date().toDateString();
         this.checkStatus(data);
         await this.IncidebtModel.findOneAndUpdate({ _id: id }, data);
         res.json(true);

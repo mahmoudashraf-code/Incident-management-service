@@ -8,4 +8,6 @@ export interface iIncident {
     assignTo?: string;
     description: string;
     replay?: string;
+    dateCreate?: string;
+    dateUpdate?: string;
 }

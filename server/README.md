@@ -46,13 +46,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-```
-
 ## License
 
 project is [MIT licensed](LICENSE).

@@ -1,5 +1,5 @@
 <div class="bashirPage">
-    <mat-toolbar>
+    <mat-toolbar *ngIf="data">
         <mat-icon style="margin: 0 7px;">{{data.icon}}</mat-icon>
         <span>{{data.name}}</span>
         <span class="example-spacer"></span>

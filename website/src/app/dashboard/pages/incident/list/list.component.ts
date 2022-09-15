@@ -17,7 +17,7 @@ import { MatSort } from '@angular/material/sort';
 })
 
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['callerName', 'title', "category", "priorty", "status", "delete", "update"];
+  displayedColumns: string[] = ['callerName', 'title', "category", "priorty", "status", "dateCreate","dateUpdate","delete", "update"];
   users: MatTableDataSource<iIncident> = new MatTableDataSource<iIncident>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

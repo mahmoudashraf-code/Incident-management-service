@@ -21,7 +21,7 @@ import { IncidentModule } from './incident/incident.module';
         redirect: false
       }
     }),
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/db'),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
     RouterModule.register([
       {
         path: "incident",
@@ -43,5 +43,6 @@ import { IncidentModule } from './incident/incident.module';
   ],
   controllers: [],
   providers: [],
+  exports: []
 })
 export class AppModule { }

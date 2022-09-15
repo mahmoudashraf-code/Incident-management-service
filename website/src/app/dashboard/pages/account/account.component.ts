@@ -31,6 +31,7 @@ export class AccountComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    if(!this.app.user)return;
     let user: iUser = this.app.user as iUser;
     this.userData.setValue({
       name: user.name,
