@@ -37,13 +37,13 @@ before start server, make sure to run mongodb at http://127.0.0.1:27017 or chang
 
 ```bash
 # development
-$ npm run start
+$ MONGODB_URL='mongodb://localhost:27017/db' npm run start
 
 # watch mode
-$ npm run start:dev
+$ MONGODB_URL='mongodb://localhost:27017/db' npm run start:dev
 
 # production mode
-$ npm run start:prod
+$ MONGODB_URL='mongodb://localhost:27017/db' npm run start:prod
 ```
 
 ## License
