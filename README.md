@@ -80,8 +80,8 @@ You can use one of this to start system
 - [Atlassianincidentmanagementhandbook](https://systemology.com.au/wp-content/uploads/2020/02/Atlassianincidentmanagementhandbook.pdf)
 
 
-## account for admin to signin init dashboard
-email is admin@gmail.com
-password is 1234
+## Account for admin to signin inito dashboard
+- Email is admin@gmail.com
+- Password is 1234
 
 
